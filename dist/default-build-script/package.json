@@ -5,6 +5,7 @@
     "description": "Scripts for building with GameCI",
     "unity": "2021.3",
     "documentationUrl": "https://game.ci/docs/github/builder",
+    "registry": "https://npm.pkg.github.com/@nurture-tech",
     "author": {
       "name": "Nurture Holdings, Inc.",
       "url": "https://nurture.is"
