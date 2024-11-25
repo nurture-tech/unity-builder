@@ -1,0 +1,13 @@
+{
+    "name": "is.nurture.ci.game.builder",
+    "version": "4.3.0",
+    "displayName": "GameCI Builder",
+    "description": "Scripts for building with GameCI",
+    "unity": "2021.3",
+    "documentationUrl": "https://game.ci/docs/github/builder",
+    "author": {
+      "name": "Nurture Holdings, Inc.",
+      "url": "https://nurture.is"
+    }
+  }
+  
