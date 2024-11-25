@@ -20,6 +20,7 @@ namespace UnityBuilderAction.Versioning
         return;
       }
 	  
+      PlayerSettings.iOS.buildNumber = bundleVersionCode;
       PlayerSettings.Android.bundleVersionCode = bundleVersionCode;
     }
 
