@@ -278,6 +278,10 @@ class Input {
     return Input.getInput('skipActivation')?.toLowerCase() ?? 'false';
   }
 
+  static get extraScriptingDefines(): string {
+    return Input.getInput('extraScriptingDefines') ?? '';
+  }
+
   public static ToEnvVarFormat(input: string) {
     if (input.toUpperCase() === input) {
       return input;

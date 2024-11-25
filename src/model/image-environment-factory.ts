@@ -53,6 +53,7 @@ class ImageEnvironmentFactory {
       { name: 'ANDROID_KEYSTORE_PASS', value: parameters.androidKeystorePass },
       { name: 'ANDROID_KEYALIAS_NAME', value: parameters.androidKeyaliasName },
       { name: 'ANDROID_KEYALIAS_PASS', value: parameters.androidKeyaliasPass },
+      { name: 'EXTRA_SCRIPTING_DEFINES', value: parameters.extraScriptingDefines },
       {
         name: 'ANDROID_TARGET_SDK_VERSION',
         value: parameters.androidTargetSdkVersion,
