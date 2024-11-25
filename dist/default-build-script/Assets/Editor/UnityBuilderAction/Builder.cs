@@ -43,7 +43,7 @@ namespace UnityBuilderAction
         locationPathName = options["customBuildPath"],
         target = (BuildTarget) Enum.Parse(typeof(BuildTarget), options["buildTarget"]),
         options = buildOptions,
-        extraScriptingDefines = (options.ContainsKey("extraScriptingDefines") && !IsNullOrWhiteSpace(options["extraScriptingDefines"])) ? options["extraScriptingDefines"].Split(';') : null,
+        extraScriptingDefines = (options.ContainsKey("extraScriptingDefines") && !String.IsNullOrWhiteSpace(options["extraScriptingDefines"])) ? options["extraScriptingDefines"].Split(';') : null,
 #if UNITY_2021_2_OR_NEWER
         subtarget = (int) buildSubtarget
 #endif
