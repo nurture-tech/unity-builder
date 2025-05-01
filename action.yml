@@ -268,8 +268,8 @@ inputs:
   beeCacheDirectory:
     default: ''
     required: false
-    description: 'The directory to use for the global Bee cache. If not specified, the default cache directory will be used.'
-
+    description:
+      'The directory to use for the global Bee cache. If not specified, the default cache directory will be used.'
 
 outputs:
   volume:
