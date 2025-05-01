@@ -221,6 +221,7 @@ class BuildParameters {
       unityHubVersionOnMac: Input.unityHubVersionOnMac,
       dockerWorkspacePath: Input.dockerWorkspacePath,
       beeCacheDirectory: Input.beeCacheDirectory,
+      upmCacheDirectory: Input.upmCacheDirectory,
     };
   }
 

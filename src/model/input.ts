@@ -286,6 +286,10 @@ class Input {
     return Input.getInput('beeCacheDirectory');
   }
 
+  static get upmCacheDirectory(): string | undefined {
+    return Input.getInput('upmCacheDirectory');
+  }
+
   public static ToEnvVarFormat(input: string) {
     if (input.toUpperCase() === input) {
       return input;

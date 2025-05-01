@@ -82,6 +82,7 @@ class ImageEnvironmentFactory {
       { name: 'RUNNER_TEMP', value: process.env.RUNNER_TEMP },
       { name: 'RUNNER_WORKSPACE', value: process.env.RUNNER_WORKSPACE },
       { name: 'BEE_CACHE_DIRECTORY', value: parameters.beeCacheDirectory },
+      { name: 'UPM_CACHE_DIRECTORY', value: parameters.upmCacheDirectory },
     ];
     if (parameters.providerStrategy === 'local-docker') {
       for (const element of additionalVariables) {
