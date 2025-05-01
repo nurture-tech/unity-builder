@@ -220,6 +220,7 @@ class BuildParameters {
       cacheUnityInstallationOnMac: Input.cacheUnityInstallationOnMac,
       unityHubVersionOnMac: Input.unityHubVersionOnMac,
       dockerWorkspacePath: Input.dockerWorkspacePath,
+      beeCacheDirectory: Input.beeCacheDirectory,
     };
   }
 
