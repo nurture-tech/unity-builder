@@ -7113,10 +7113,10 @@ class Input {
         return Input.getInput('skipActivation')?.toLowerCase() ?? 'false';
     }
     static get beeCacheDirectory() {
-        return Input.getInput('beeCacheDirectory');
+        return Input.getInput('beeCacheDirectory') ?? '';
     }
     static get upmCacheDirectory() {
-        return Input.getInput('upmCacheDirectory');
+        return Input.getInput('upmCacheDirectory') ?? '';
     }
     static ToEnvVarFormat(input) {
         if (input.toUpperCase() === input) {
@@ -7488,6 +7488,8 @@ class SetupMac {
         process.env.CHOWN_FILES_TO = buildParameters.chownFilesTo;
         process.env.MANUAL_EXIT = buildParameters.manualExit.toString();
         process.env.ENABLE_GPU = buildParameters.enableGpu.toString();
+        process.env.BEE_CACHE_DIRECTORY = buildParameters.beeCacheDirectory;
+        process.env.UPM_CACHE_DIRECTORY = buildParameters.upmCacheDirectory;
     }
 }
 SetupMac.unityHubBasePath = `/Applications/"Unity Hub.app"`;

@@ -194,6 +194,8 @@ class SetupMac {
     process.env.CHOWN_FILES_TO = buildParameters.chownFilesTo;
     process.env.MANUAL_EXIT = buildParameters.manualExit.toString();
     process.env.ENABLE_GPU = buildParameters.enableGpu.toString();
+    process.env.BEE_CACHE_DIRECTORY = buildParameters.beeCacheDirectory;
+    process.env.UPM_CACHE_DIRECTORY = buildParameters.upmCacheDirectory;
   }
 }
 

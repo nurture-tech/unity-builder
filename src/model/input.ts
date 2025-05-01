@@ -282,12 +282,12 @@ class Input {
     return Input.getInput('skipActivation')?.toLowerCase() ?? 'false';
   }
 
-  static get beeCacheDirectory(): string | undefined {
-    return Input.getInput('beeCacheDirectory');
+  static get beeCacheDirectory(): string {
+    return Input.getInput('beeCacheDirectory') ?? '';
   }
 
-  static get upmCacheDirectory(): string | undefined {
-    return Input.getInput('upmCacheDirectory');
+  static get upmCacheDirectory(): string {
+    return Input.getInput('upmCacheDirectory') ?? '';
   }
 
   public static ToEnvVarFormat(input: string) {

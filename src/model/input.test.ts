@@ -334,4 +334,30 @@ describe('Input', () => {
       expect(spy).toHaveBeenCalledTimes(1);
     });
   });
+
+  describe('beeCacheDirectory', () => {
+    it('returns the default value', () => {
+      expect(Input.beeCacheDirectory).toStrictEqual('');
+    });
+
+    it('takes input from the users workflow', () => {
+      const mockValue = 'customBeeCacheDirectory';
+      const spy = jest.spyOn(core, 'getInput').mockReturnValue(mockValue);
+      expect(Input.beeCacheDirectory).toStrictEqual(mockValue);
+      expect(spy).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('upmCacheDirectory', () => {
+    it('returns the default value', () => {
+      expect(Input.upmCacheDirectory).toStrictEqual('');
+    });
+
+    it('takes input from the users workflow', () => {
+      const mockValue = 'customUpmCacheDirectory';
+      const spy = jest.spyOn(core, 'getInput').mockReturnValue(mockValue);
+      expect(Input.upmCacheDirectory).toStrictEqual(mockValue);
+      expect(spy).toHaveBeenCalledTimes(1);
+    });
+  });
 });
