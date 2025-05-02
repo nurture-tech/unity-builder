@@ -364,8 +364,6 @@ class BuildParameters {
             cacheUnityInstallationOnMac: input_1.default.cacheUnityInstallationOnMac,
             unityHubVersionOnMac: input_1.default.unityHubVersionOnMac,
             dockerWorkspacePath: input_1.default.dockerWorkspacePath,
-            beeCacheDirectory: input_1.default.beeCacheDirectory,
-            upmCacheDirectory: input_1.default.upmCacheDirectory,
         };
     }
     static parseBuildFile(filename, platform, androidExportType) {
@@ -6483,8 +6481,8 @@ class ImageEnvironmentFactory {
             { name: 'RUNNER_TOOL_CACHE', value: process.env.RUNNER_TOOL_CACHE },
             { name: 'RUNNER_TEMP', value: process.env.RUNNER_TEMP },
             { name: 'RUNNER_WORKSPACE', value: process.env.RUNNER_WORKSPACE },
-            { name: 'BEE_CACHE_DIRECTORY', value: parameters.beeCacheDirectory },
-            { name: 'UPM_CACHE_DIRECTORY', value: parameters.upmCacheDirectory },
+            { name: 'BEE_CACHE_DIRECTORY', value: process.env.BEE_CACHE_DIRECTORY },
+            { name: 'UPM_CACHE_ROOT', value: process.env.UPM_CACHE_ROOT },
         ];
         if (parameters.providerStrategy === 'local-docker') {
             for (const element of additionalVariables) {

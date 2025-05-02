@@ -219,21 +219,5 @@ describe('BuildParameters', () => {
       jest.spyOn(Input, 'customParameters', 'get').mockReturnValue(mockValue);
       await expect(BuildParameters.create()).resolves.toEqual(expect.objectContaining({ customParameters: mockValue }));
     });
-
-    it('returns the bee cache directory', async () => {
-      const mockValue = 'customBeeCacheDirectory';
-      jest.spyOn(Input, 'beeCacheDirectory', 'get').mockReturnValue(mockValue);
-      await expect(BuildParameters.create()).resolves.toEqual(
-        expect.objectContaining({ beeCacheDirectory: mockValue }),
-      );
-    });
-
-    it('returns the upm cache directory', async () => {
-      const mockValue = 'customUpmCacheDirectory';
-      jest.spyOn(Input, 'upmCacheDirectory', 'get').mockReturnValue(mockValue);
-      await expect(BuildParameters.create()).resolves.toEqual(
-        expect.objectContaining({ upmCacheDirectory: mockValue }),
-      );
-    });
   });
 });
