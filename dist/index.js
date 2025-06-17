@@ -364,6 +364,11 @@ class BuildParameters {
             cacheUnityInstallationOnMac: input_1.default.cacheUnityInstallationOnMac,
             unityHubVersionOnMac: input_1.default.unityHubVersionOnMac,
             dockerWorkspacePath: input_1.default.dockerWorkspacePath,
+            buildAddressables: input_1.default.buildAddressables,
+            cleanAddressables: input_1.default.cleanAddressables,
+            addressablesProfile: input_1.default.addressablesProfile,
+            addressablesOverridePlayerVersion: input_1.default.addressablesOverridePlayerVersion,
+            addressablesForceBuildRemoteCatalog: input_1.default.addressablesForceBuildRemoteCatalog,
         };
     }
     static parseBuildFile(filename, platform, androidExportType) {
@@ -6487,6 +6492,11 @@ class ImageEnvironmentFactory {
             { name: 'RUNNER_WORKSPACE', value: process.env.RUNNER_WORKSPACE },
             { name: 'BEE_CACHE_DIRECTORY', value: process.env.BEE_CACHE_DIRECTORY },
             { name: 'UPM_CACHE_ROOT', value: process.env.UPM_CACHE_ROOT },
+            { name: 'BUILD_ADDRESSABLES', value: parameters.buildAddressables },
+            { name: 'CLEAN_ADDRESSABLES', value: parameters.cleanAddressables },
+            { name: 'ADDRESSABLES_PROFILE', value: parameters.addressablesProfile },
+            { name: 'ADDRESSABLES_OVERRIDE_PLAYER_VERSION', value: parameters.addressablesOverridePlayerVersion },
+            { name: 'ADDRESSABLES_FORCE_BUILD_REMOTE_CATALOG', value: parameters.addressablesForceBuildRemoteCatalog },
         ];
         if (parameters.providerStrategy === 'local-docker') {
             for (const element of additionalVariables) {
@@ -7125,6 +7135,21 @@ class Input {
     }
     static get upmCacheDirectory() {
         return Input.getInput('upmCacheDirectory') ?? '';
+    }
+    static get buildAddressables() {
+        return Input.getInput('buildAddressables') ?? 'true';
+    }
+    static get cleanAddressables() {
+        return Input.getInput('cleanAddressables') ?? 'true';
+    }
+    static get addressablesProfile() {
+        return Input.getInput('addressablesProfile') ?? '';
+    }
+    static get addressablesOverridePlayerVersion() {
+        return Input.getInput('addressablesOverridePlayerVersion') ?? '';
+    }
+    static get addressablesForceBuildRemoteCatalog() {
+        return Input.getInput('addressablesForceBuildRemoteCatalog') ?? 'false';
     }
     static ToEnvVarFormat(input) {
         if (input.toUpperCase() === input) {

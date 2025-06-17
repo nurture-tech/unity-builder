@@ -10,6 +10,9 @@ using UnityEditor.Build.Reporting;
 using UnityEditor.Build.Profile;
 #endif
 using UnityEngine;
+using UnityEditor.AddressableAssets.Settings;
+using UnityEditor.AddressableAssets;
+
 
 namespace UnityBuilderAction
 {
@@ -23,24 +26,37 @@ namespace UnityBuilderAction
       // Set version for this build
       VersionApplicator.SetVersion(options["buildVersion"]);
 
-      // Execute default AddressableAsset content build, if the package is installed.
-      // Version defines would be the best solution here, but Unity 2018 doesn't support that,
-      // so we fall back to using reflection instead.
-      var addressableAssetSettingsType = Type.GetType(
-        "UnityEditor.AddressableAssets.Settings.AddressableAssetSettings,Unity.Addressables.Editor");
-      if (addressableAssetSettingsType != null)
+
+      // Build addressables
+      AddressableAssetSettings settings = AddressableAssetSettingsDefaultObject.Settings;
+
+      if (settings != null && options["buildAddressables"] == "true")
       {
-        // ReSharper disable once PossibleNullReferenceException, used from try-catch
-        try
+        string profileName = options["addressablesProfile"];
+        
+        if (profileName != "")
         {
-          addressableAssetSettingsType.GetMethod("CleanPlayerContent", BindingFlags.Static | BindingFlags.Public)
-                .Invoke(null, new object[] {null});
-          addressableAssetSettingsType.GetMethod("BuildPlayerContent", new Type[0]).Invoke(null, new object[0]);
+          string profileId = settings.profileSettings.GetProfileId(profileName);
+          settings.activeProfileId = profileId;
         }
-        catch (Exception e)
+        
+        string overridePlayerVersion = options["addressablesOverridePlayerVersion"];
+
+        if (overridePlayerVersion != "")
         {
-          Debug.LogError("Failed to run default addressables build:\n" + e);
+          settings.OverridePlayerVersion = overridePlayerVersion;
         }
+
+        settings.BuildRemoteCatalog = (options["addressablesForceBuildRemoteCatalog"] == "true") || settings.BuildRemoteCatalog;
+        settings.RemoteCatalogBuildPath.SetVariableByName(settings, "Platform.BuildPath");
+        settings.RemoteCatalogLoadPath.SetVariableByName(settings, "Platform.LoadPath");
+
+        if (options["cleanAddressables"] == "true")
+        {
+          settings.CleanPlayerContent();
+        }
+
+        settings.BuildPlayerContent();
       }
 
       // Get all buildOptions from options

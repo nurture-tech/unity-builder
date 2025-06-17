@@ -290,6 +290,26 @@ class Input {
     return Input.getInput('upmCacheDirectory') ?? '';
   }
 
+  static get buildAddressables(): string {
+    return Input.getInput('buildAddressables') ?? 'true';
+  }
+
+  static get cleanAddressables(): string {
+    return Input.getInput('cleanAddressables') ?? 'true';
+  }
+
+  static get addressablesProfile(): string {
+    return Input.getInput('addressablesProfile') ?? '';
+  }
+
+  static get addressablesOverridePlayerVersion(): string {
+    return Input.getInput('addressablesOverridePlayerVersion') ?? '';
+  }
+
+  static get addressablesForceBuildRemoteCatalog(): string {
+    return Input.getInput('addressablesForceBuildRemoteCatalog') ?? 'false';
+  }
+
   public static ToEnvVarFormat(input: string) {
     if (input.toUpperCase() === input) {
       return input;

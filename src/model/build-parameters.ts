@@ -220,6 +220,11 @@ class BuildParameters {
       cacheUnityInstallationOnMac: Input.cacheUnityInstallationOnMac,
       unityHubVersionOnMac: Input.unityHubVersionOnMac,
       dockerWorkspacePath: Input.dockerWorkspacePath,
+      buildAddressables: Input.buildAddressables,
+      cleanAddressables: Input.cleanAddressables,
+      addressablesProfile: Input.addressablesProfile,
+      addressablesOverridePlayerVersion: Input.addressablesOverridePlayerVersion,
+      addressablesForceBuildRemoteCatalog: Input.addressablesForceBuildRemoteCatalog,
     };
   }
 

@@ -178,6 +178,11 @@ $unityArgs = @(
     "-androidTargetSdkVersion", "`"$Env:ANDROID_TARGET_SDK_VERSION`"",
     "-androidExportType", "`"$Env:ANDROID_EXPORT_TYPE`"",
     "-androidSymbolType", "`"$Env:ANDROID_SYMBOL_TYPE`"",
+    "-buildAddressables", "`"$Env:BUILD_ADDRESSABLES`"",
+    "-cleanAddressables", "`"$Env:CLEAN_ADDRESSABLES`"",
+    "-addressablesProfile", "`"$Env:ADDRESSABLES_PROFILE`"",
+    "-addressablesOverridePlayerVersion", "`"$Env:ADDRESSABLES_OVERRIDE_PLAYER_VERSION`"",
+    "-addressablesForceBuildRemoteCatalog", "`"$Env:ADDRESSABLES_FORCE_BUILD_REMOTE_CATALOG`"",
     "-logfile", "-"
 ) + $customParametersArray
 

@@ -265,6 +265,26 @@ inputs:
     default: 'false'
     required: false
     description: 'Skip the activation/deactivation of Unity. This assumes Unity is already activated.'
+  buildAddressables:
+    default: 'true'
+    required: false
+    description: 'Whether to build addressables before building the player'
+  cleanAddressables:
+    default: 'true'
+    required: false
+    description: 'Whether to clean the addressables cache before building the addressables'
+  addressablesProfile:
+    default: ''
+    required: false
+    description: 'The name of the addressables profiles to use'
+  addressablesOverridePlayerVersion:
+    default: ''
+    required: false
+    description: 'The version string to use for addressable bundles in the catalog'
+  addressablesForceBuildRemoteCatalog:
+    default: 'false'
+    required: false
+    description: 'Whether to force remote catalog building in the addressables profile'
 
 outputs:
   volume:

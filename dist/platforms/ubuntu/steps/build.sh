@@ -139,6 +139,11 @@ unity-editor \
   -androidTargetSdkVersion "$ANDROID_TARGET_SDK_VERSION" \
   -androidExportType "$ANDROID_EXPORT_TYPE" \
   -androidSymbolType "$ANDROID_SYMBOL_TYPE" \
+  -buildAddressables "$BUILD_ADDRESSABLES" \
+  -cleanAddressables "$CLEAN_ADDRESSABLES" \
+  -addressablesProfile "$ADDRESSABLES_PROFILE" \
+  -addressablesOverridePlayerVersion "$ADDRESSABLES_OVERRIDE_PLAYER_VERSION" \
+  -addressablesForceBuildRemoteCatalog "$ADDRESSABLES_FORCE_BUILD_REMOTE_CATALOG"
   $CUSTOM_PARAMETERS
 
 # Catch exit code

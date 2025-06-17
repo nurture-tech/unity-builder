@@ -67,6 +67,7 @@ class ImageEnvironmentFactory {
       { name: 'CUSTOM_PARAMETERS', value: parameters.customParameters },
       { name: 'RUN_AS_HOST_USER', value: parameters.runAsHostUser },
       { name: 'CHOWN_FILES_TO', value: parameters.chownFilesTo },
+
       { name: 'GITHUB_REF', value: process.env.GITHUB_REF },
       { name: 'GITHUB_SHA', value: process.env.GITHUB_SHA },
       { name: 'GITHUB_REPOSITORY', value: process.env.GITHUB_REPOSITORY },
@@ -83,6 +84,12 @@ class ImageEnvironmentFactory {
       { name: 'RUNNER_WORKSPACE', value: process.env.RUNNER_WORKSPACE },
       { name: 'BEE_CACHE_DIRECTORY', value: process.env.BEE_CACHE_DIRECTORY },
       { name: 'UPM_CACHE_ROOT', value: process.env.UPM_CACHE_ROOT },
+
+      { name: 'BUILD_ADDRESSABLES', value: parameters.buildAddressables },
+      { name: 'CLEAN_ADDRESSABLES', value: parameters.cleanAddressables },
+      { name: 'ADDRESSABLES_PROFILE', value: parameters.addressablesProfile },
+      { name: 'ADDRESSABLES_OVERRIDE_PLAYER_VERSION', value: parameters.addressablesOverridePlayerVersion },
+      { name: 'ADDRESSABLES_FORCE_BUILD_REMOTE_CATALOG', value: parameters.addressablesForceBuildRemoteCatalog },
     ];
     if (parameters.providerStrategy === 'local-docker') {
       for (const element of additionalVariables) {
