@@ -23,6 +23,25 @@ namespace UnityBuilderAction
       // Set version for this build
       VersionApplicator.SetVersion(options["buildVersion"]);
 
+      // Execute default AddressableAsset content build, if the package is installed.
+      // Version defines would be the best solution here, but Unity 2018 doesn't support that,
+      // so we fall back to using reflection instead.
+      var addressableAssetSettingsType = Type.GetType(
+        "UnityEditor.AddressableAssets.Settings.AddressableAssetSettings,Unity.Addressables.Editor");
+      if (addressableAssetSettingsType != null)
+      {
+        // ReSharper disable once PossibleNullReferenceException, used from try-catch
+        try
+        {
+          addressableAssetSettingsType.GetMethod("CleanPlayerContent", BindingFlags.Static | BindingFlags.Public)
+                .Invoke(null, new object[] {null});
+          addressableAssetSettingsType.GetMethod("BuildPlayerContent", new Type[0]).Invoke(null, new object[0]);
+        }
+        catch (Exception e)
+        {
+          Debug.LogError("Failed to run default addressables build:\n" + e);
+        }
+      }
 
       // Get all buildOptions from options
       BuildOptions buildOptions = BuildOptions.None;
