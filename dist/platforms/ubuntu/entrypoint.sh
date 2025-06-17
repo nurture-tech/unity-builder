@@ -38,7 +38,7 @@ if [[ "$BUILD_TARGET" == "Android" ]]; then
     # Extract the number after the semicolon
     targetAPI=$(echo "$targetAPILine" | cut -d':' -f2 | tr -d '[:space:]')
 
-    $SDKMANAGER "platforms;android-$targetAPI"
+    $SDKMANAGER "platforms;android-$targetAPI" "cmdline-tools;16.0" "platform-tools" "build-tools;34.0.0"
   fi
 
   echo "Updated Android SDK."
