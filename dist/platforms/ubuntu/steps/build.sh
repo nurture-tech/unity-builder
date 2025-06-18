@@ -143,7 +143,7 @@ unity-editor \
   -cleanAddressables "$CLEAN_ADDRESSABLES" \
   -addressablesProfile "$ADDRESSABLES_PROFILE" \
   -addressablesOverridePlayerVersion "$ADDRESSABLES_OVERRIDE_PLAYER_VERSION" \
-  -addressablesForceBuildRemoteCatalog "$ADDRESSABLES_FORCE_BUILD_REMOTE_CATALOG"
+  -addressablesForceBuildRemoteCatalog "$ADDRESSABLES_FORCE_BUILD_REMOTE_CATALOG" \
   $CUSTOM_PARAMETERS
 
 # Catch exit code
