@@ -53,10 +53,10 @@ namespace UnityBuilderAction
 
         if (options["cleanAddressables"] == "true")
         {
-          settings.CleanPlayerContent();
+          AddressableAssetSettings.CleanPlayerContent();
         }
 
-        settings.BuildPlayerContent();
+        AddressableAssetSettings.BuildPlayerContent();
       }
 
       // Get all buildOptions from options
