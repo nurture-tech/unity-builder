@@ -51,8 +51,6 @@ namespace UnityBuilderAction
 
         Debug.Log("[UnityBuilderAction] Setting addressables build remote catalog to " + settings.BuildRemoteCatalog);
         settings.BuildRemoteCatalog = (options["addressablesForceBuildRemoteCatalog"] == "true") || settings.BuildRemoteCatalog;
-        settings.RemoteCatalogBuildPath.SetVariableByName(settings, "Platform.BuildPath");
-        settings.RemoteCatalogLoadPath.SetVariableByName(settings, "Platform.LoadPath");
 
         if (options["cleanAddressables"] == "true")
         {
