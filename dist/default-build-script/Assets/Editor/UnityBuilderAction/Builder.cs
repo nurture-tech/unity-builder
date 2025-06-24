@@ -36,6 +36,7 @@ namespace UnityBuilderAction
         
         if (profileName != "")
         {
+          Debug.Log("[UnityBuilderAction] Setting addressables profile to " + profileName);
           string profileId = settings.profileSettings.GetProfileId(profileName);
           settings.activeProfileId = profileId;
         }
@@ -44,18 +45,22 @@ namespace UnityBuilderAction
 
         if (overridePlayerVersion != "")
         {
+          Debug.Log("[UnityBuilderAction] Setting addressables override player version to " + overridePlayerVersion);
           settings.OverridePlayerVersion = overridePlayerVersion;
         }
 
+        Debug.Log("[UnityBuilderAction] Setting addressables build remote catalog to " + settings.BuildRemoteCatalog);
         settings.BuildRemoteCatalog = (options["addressablesForceBuildRemoteCatalog"] == "true") || settings.BuildRemoteCatalog;
         settings.RemoteCatalogBuildPath.SetVariableByName(settings, "Platform.BuildPath");
         settings.RemoteCatalogLoadPath.SetVariableByName(settings, "Platform.LoadPath");
 
         if (options["cleanAddressables"] == "true")
         {
+          Debug.Log("[UnityBuilderAction] Cleaning addressables");
           AddressableAssetSettings.CleanPlayerContent();
         }
 
+        Debug.Log("[UnityBuilderAction] Building addressables");
         AddressableAssetSettings.BuildPlayerContent();
       }
 
